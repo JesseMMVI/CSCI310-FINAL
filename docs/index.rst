@@ -6,8 +6,9 @@
 CSCI310-FINAL documentation
 ===========================
 
-CHANGE THE NAME OF THE MODULE hello BELOW AFTER YOU CHANGE THE NAME OF hello.py TO MATCH YOUR PROJECT!
-Then you can change these documentation lines
+From https://runestone.academy/ns/books/published/pythonds/BasicDS/ImplementingaQueueinPython.html
+
+From https://runestone.academy/ns/books/published/pythonds/Graphs/Implementation.html
 
 .. automodule:: smallWorld
    :members:

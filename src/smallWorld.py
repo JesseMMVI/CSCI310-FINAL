@@ -293,25 +293,65 @@ def plotSmallWorld(n=1000, k=10, p_values=None, trials=8):
     print(f"p={p}, C={avg_C / trials}, L={avg_length / trials}")
     avg_clusterings.append(avg_C / trials)
 
-  
+  # ========================== Plotting =================================  
 
-  plt.plot(p_values, avg_path_lengths, marker='o')
-  plt.title('Average Shortest Path Length vs Rewiring Probability')
-  plt.xlabel('Rewiring Probability (p)')
-  plt.ylabel('Average Shortest Path Length')
-  plt.xscale('log')
+  fig, ax1 = plt.subplots(figsize=(10, 6))
+
+  ax1.set_xlabel('Rewiring Probability (p)')
+  ax1.set_xscale('log')
+
+  ax2 = ax1.twinx()
+  ax1.plot(p_values, avg_path_lengths, 'r-o', label='Avg Connections')
+  ax2.plot(p_values, avg_clusterings, 'c-s', label='Clustering Coefficient')  
+  ax1.legend(loc='lower center')
+  ax2.legend(loc='lower left') 
+  ax1.set_ylabel('Average Connections')
+  ax2.set_ylabel('Clustering Coefficient C')
+
+  for i, j in zip(p_values, avg_path_lengths):
+    label = f"{j:.2f}"  
+    ax1.annotate(label,       
+      xy=(i, j),    
+      xytext=(-10, -20), 
+      textcoords='offset points',
+      ha='left',   
+      va='bottom', 
+      color='#520000',
+      fontweight='bold')
+    
+  for i, j in zip(p_values, avg_clusterings):
+    label = f"{j:.2f}"  
+    ax2.annotate(label,      
+      xy=(i, j),    
+      xytext=(5, -10), 
+      textcoords='offset points',
+      ha='left',    
+      va='bottom',
+      color='#005249',
+      fontweight='bold')  
+
+  plt.title('Small-World Network Properties vs Rewiring Probability')
   plt.grid()
-  plt.savefig(f'plots/small_world_N{n}_K{k}_Trials{trials}.png')
+  plt.savefig(f'plots/small_world_combined_N{n}_K{k}_Trials{trials}.png')
   plt.show()
 
-  plt.plot(p_values, avg_clusterings, marker='s')
-  plt.title('Clustering Coefficient vs Rewiring Probability')
-  plt.xlabel('Rewiring Probability (p)')
-  plt.ylabel('Clustering Coefficient C')
-  plt.xscale('log')
-  plt.grid()
-  plt.savefig(f'plots/clustering_coefficient_N{n}_K{k}_Trials{trials}.png')
-  plt.show()
+  # plt.plot(p_values, avg_path_lengths, marker='o')
+  # plt.title('Average Shortest Path Length vs Rewiring Probability')
+  # plt.xlabel('Rewiring Probability (p)')
+  # plt.ylabel('Average Connections')
+  # plt.xscale('log')
+  # plt.grid()
+  # plt.savefig(f'plots/small_world_N{n}_K{k}_Trials{trials}.png')
+  # plt.show()
+
+  # plt.plot(p_values, avg_clusterings, marker='s')
+  # plt.title('Clustering Coefficient vs Rewiring Probability')
+  # plt.xlabel('Rewiring Probability (p)')
+  # plt.ylabel('Clustering Coefficient C')
+  # plt.xscale('log')
+  # plt.grid()
+  # plt.savefig(f'plots/clustering_coefficient_N{n}_K{k}_Trials{trials}.png')
+  # plt.show()
 
 
 
@@ -319,4 +359,4 @@ if __name__ == "__main__":
   """
   Runs if file called as script as opposed to being imported as a library
   """
-  plotSmallWorld(n=1000, k=10, trials=8)
+  plotSmallWorld(n=2000, k=10, trials=16)
