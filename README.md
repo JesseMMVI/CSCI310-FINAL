@@ -34,7 +34,7 @@ The small-world phenomenon is observed in social networks, brain networks, power
 
 ## Output
 
-![The generated output ](plots/small_world_combined_N2000_K16_Trials8.png "Optional title")
+![The generated output ](plots/small_world_combined_N2000_K10_Trials16.png "Optional title")
 
 ---
 
