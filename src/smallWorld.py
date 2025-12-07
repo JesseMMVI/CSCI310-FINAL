@@ -216,6 +216,46 @@ def avgShortestPathLength(g=None, n=1000, k=10, p=0.1):
   avgPathLength = totalPathLength / pathCounts if pathCounts > 0 else 0
   return avgPathLength
 
+def clusteringCoefficient(g):
+  """
+    Compute the clustering coefficient of the graph.
+
+    Parameters
+    ----------
+    g : Graph
+        The graph instance.
+
+    Returns
+    -------
+    float
+        Clustering coefficient C of the graph.
+  """
+  totalC = 0
+  count = 0
+
+  for v in g:
+    neighbors = list(v.getConnections())
+    k = len(neighbors)
+
+    if k < 2:
+      continue
+
+    # Count actual edges among neighbors
+    actual = 0
+    possible = k * (k - 1) / 2
+
+    neighbor_ids = {n.getId() for n in neighbors}
+
+    for n in neighbors:
+      for nn in n.getConnections():
+        if nn.getId() in neighbor_ids and nn.getId() > n.getId():
+          actual += 1
+
+    totalC += actual / possible
+    count += 1
+
+  return totalC / count if count > 0 else 0
+
 def plotSmallWorld(n=1000, k=10, p_values=None, trials=8):
   """
     Plot average shortest path length vs. rewiring probability.
@@ -236,16 +276,24 @@ def plotSmallWorld(n=1000, k=10, p_values=None, trials=8):
     p_values = [0.0, 0.00001, 0.000032, 0.0001, 0.00032, 0.001, 0.0032, 0.01, 0.032, 0.1, 0.32, 1.0]
   
   avg_path_lengths = []
+  avg_clusterings = []
 
   for p in p_values:
     avg_length = 0
+    avg_C = 0
     for trial in range(trials):
       g = wattsStrogatzGraph(n, k, p)
       avg_length += avgShortestPathLength(g=g)
+      avg_C += clusteringCoefficient(g)
 
 
     print(f"p={p}, Average Shortest Path Length over {trials} trials: {avg_length / trials}")
     avg_path_lengths.append(avg_length / trials)
+
+    print(f"p={p}, C={avg_C / trials}, L={avg_length / trials}")
+    avg_clusterings.append(avg_C / trials)
+
+  
 
   plt.plot(p_values, avg_path_lengths, marker='o')
   plt.title('Average Shortest Path Length vs Rewiring Probability')
@@ -256,10 +304,19 @@ def plotSmallWorld(n=1000, k=10, p_values=None, trials=8):
   plt.savefig(f'plots/small_world_N{n}_K{k}_Trials{trials}.png')
   plt.show()
 
+  plt.plot(p_values, avg_clusterings, marker='s')
+  plt.title('Clustering Coefficient vs Rewiring Probability')
+  plt.xlabel('Rewiring Probability (p)')
+  plt.ylabel('Clustering Coefficient C')
+  plt.xscale('log')
+  plt.grid()
+  plt.savefig(f'plots/clustering_coefficient_N{n}_K{k}_Trials{trials}.png')
+  plt.show()
+
 
 
 if __name__ == "__main__":
   """
   Runs if file called as script as opposed to being imported as a library
   """
-  plotSmallWorld(n=2000, k=10, trials=8)
+  plotSmallWorld(n=1000, k=10, trials=8)
