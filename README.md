@@ -38,7 +38,7 @@ The small-world phenomenon is observed in social networks, brain networks, power
 
 ---
 
-## 📁 Project Contents
+## Project Contents
 
 ### `Graph` and `Vertex`
 
@@ -91,7 +91,7 @@ trials = 16
 
 ---
 
-## 📊 What the Script Demonstrates
+## What the Script Demonstrates
 
 This implementation visualizes the behavior of small‑world networks:
 
@@ -103,7 +103,7 @@ This mirrors real social networks, communication systems, and many biological ne
 
 ---
 
-## ▶️ How to Run
+## How to Run
 
 1. Install Matplotlib:
 
@@ -119,7 +119,7 @@ This mirrors real social networks, communication systems, and many biological ne
 
 ---
 
-## 📘 Example Output
+## Example Output
 
 You will see two curves on the same figure:
 
@@ -130,7 +130,7 @@ This visualization reproduces the central result from the original Watts–Strog
 
 ---
 
-## 👤 Author
+## Author
 
 **Jesse Gerth**
 
