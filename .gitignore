@@ -1,6 +1,6 @@
-docs/Makefile
-docs/make.bat
 .DS_Store
+docs/make.bat
+docs/Makefile
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
