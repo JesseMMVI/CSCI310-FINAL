@@ -6,13 +6,10 @@
 CSCI310-FINAL documentation
 ===========================
 
-
 From https://runestone.academy/ns/books/published/pythonds/BasicDS/ImplementingaQueueinPython.html
-
 From https://runestone.academy/ns/books/published/pythonds/Graphs/Implementation.html
-
 Welcome to CSCI310-FINAL's documentation!
-
+Swapped tabs for spaces.
 
 .. automodule:: smallWorld
    :members:
