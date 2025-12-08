@@ -1,5 +1,7 @@
 # smallWorld.py — Watts–Strogatz Small‑World Model
 
+Docs: https://jessemmvi.github.io/CSCI310-FINAL/
+
 This project implements a **Watts–Strogatz small‑world network** from scratch using pure Python and basic data structures. It recreates the model using a custom version of `Graph`, `Vertex`, and `Queue` classes based on ```https://runestone.academy/ns/books/published/pythonds/BasicDS/ImplementingaQueueinPython.html```, and ```https://runestone.academy/ns/books/published/pythonds/Graphs/Implementation.html``` (in the style of *Problem Solving with Algorithms and Data Structures*).
 
 The script allows you to:
