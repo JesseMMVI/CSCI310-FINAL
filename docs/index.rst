@@ -10,6 +10,9 @@ From https://runestone.academy/ns/books/published/pythonds/BasicDS/Implementinga
 From https://runestone.academy/ns/books/published/pythonds/Graphs/Implementation.html
 Welcome to CSCI310-FINAL's documentation!
 Swapped tabs for spaces.
+Removed trailing whitespace.
+Added test file and changed smallWorld to test inside this file.
+We looked at this for 20 minutes in class, couldn't get it to work.
 
 .. automodule:: smallWorld
    :members:
