@@ -6,13 +6,14 @@
 CSCI310-FINAL documentation
 ===========================
 
-Welcome to CSCI310-FINAL's documentation!
 
 From https://runestone.academy/ns/books/published/pythonds/BasicDS/ImplementingaQueueinPython.html
 
 From https://runestone.academy/ns/books/published/pythonds/Graphs/Implementation.html
 
-.. automodule:: test
+Welcome to CSCI310-FINAL's documentation!
+
+.. automodule:: smallWorld
    :members:
    :undoc-members:
    :show-inheritance:
