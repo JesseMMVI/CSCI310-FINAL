@@ -12,7 +12,7 @@ From https://runestone.academy/ns/books/published/pythonds/BasicDS/Implementinga
 
 From https://runestone.academy/ns/books/published/pythonds/Graphs/Implementation.html
 
-.. automodule:: smallWorld
+.. automodule:: test
    :members:
    :undoc-members:
    :show-inheritance:
